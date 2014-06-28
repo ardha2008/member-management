@@ -6,15 +6,9 @@
 				Member Management. V1.1
 			</h3>
 			<div class="jumbotron well">
-				<h1>
-					Hello, world!
-				</h1>
-				<p>
-					This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
-				</p>
-				<p>
-					<a class="btn btn-primary btn-large" href="#">Learn more</a>
-				</p>
+				<h1>Management Member</h1>
+				<p>Management member adalah aplikasi kecil yang berguna untuk memanage member</p>
+				
 			</div>
 		</div>
 	</div>
@@ -125,7 +119,7 @@
     <hr />
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			 <address> <strong>Twitter, Inc.</strong><br /> 795 Folsom Ave, Suite 600<br /> San Francisco, CA 94107<br /> <abbr title="Phone">P:</abbr> (123) 456-7890</address>
+			 <footer>&COPY;2014 Lisensi bebas boleh ditukar tambah , <a href="http://facebook.com/ardha.down">Ardha Herdianto</a></footer>
 		</div>
 	</div>
 </div>

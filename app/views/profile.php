@@ -9,10 +9,12 @@
 				</div>
 				
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-                        <li><a href="#">Manage Files</a></li>
-                        <li><a href="#">Manage Member</a></li>
-					</ul>
+				    <?php if($this->session->getValue('level')>3){?>
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">Manage Files</a></li>
+                            <li><a href="#">Manage Member</a></li>
+    					</ul>
+					<?php } ?>
 					
                     <ul class="nav navbar-nav navbar-right">
 						<li><a href="#">@ardha</a></li>
@@ -35,31 +37,28 @@
                       </div>
                     </div>
 				</div>
-                
-                <div class="col-md-12 column">
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h3 class="panel-title">Files List</h3>
-                      </div>
-                      <div class="panel-body">
-                        <?php $this->output('data/files'); ?>
-                      </div>
-                    </div>
-				</div>
             <?php } ?>	
                 
 				<div class="col-md-4 column">
 					<div class="list-group">
-						 <a href="#" class="list-group-item active">Home</a>
-						<div class="list-group-item">
-							List header
-						</div>
-					</div>
+                        <a href="#" class="list-group-item active">Home</a>
+                        <a href="<?= $this->location('files') ?>" class="list-group-item">Files</a>
+                    </div>
 				</div>
                 
-                <div class="col-md-8 column">
-                    
+                <?php if($pages=='files'){?>
+                    <div class="col-md-8 column">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Upload</h3>
+                      </div>
+                      <div class="panel-body">
+                        <?php $this->output('forms/files'); ?>
+                      </div>
+                    </div>
                 </div>
+                <?php } ?>
+                
 			</div>
 		</div>
 	</div>

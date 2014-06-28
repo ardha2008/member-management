@@ -14,6 +14,8 @@ class Profile extends Resources\Controller{
         $this->member= new Models\Member;
         $this->hash= new Libraries\Hash;
         
+        $this->files= new Models\Files;
+        
         if($this->session->getValue('login')!=true) $this->redirect('home');
 
     }
@@ -75,11 +77,12 @@ class Profile extends Resources\Controller{
         }
         
         if(isset($_POST['update'])){
+            
             $data=array(
             'nama'=>$this->request->post('nama'),
             'email'=>$this->request->post('email'),
             'alamat'=>$this->request->post('alamat'),
-            'level'=>$this->request->post('level')
+            'level'=>$this->request->post('level'),
             );
             
             $query=$this->member->update($data);
@@ -88,11 +91,9 @@ class Profile extends Resources\Controller{
             }            
         }
         
-        
-        
-        $data['title']='Profile';
-        $data['hasil']=$this->member->all();
-        
+            $data['pages']='account';
+            $data['title']='Dashboard';
+    
         $this->output('profile',$data);
     
     }
