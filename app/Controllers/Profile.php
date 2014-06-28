@@ -1,7 +1,7 @@
 <?php
 
 namespace Controllers;
-use Resources,Models;
+use Resources,Models, Libraries;
 
 
 class Profile extends Resources\Controller{
@@ -9,11 +9,10 @@ class Profile extends Resources\Controller{
     function __construct(){
         parent::__construct();
         
-        $secreteToken = 'JYGGdyw732626487HGhjdasgyugy786832984askdjasldjasld7623';
         $this->session= new Resources\Session;
         $this->request= new Resources\Request;
-        $this->crypt = new Resources\Encryption($secreteToken);
         $this->member= new Models\Member;
+        $this->hash= new Libraries\Hash;
         
         if($this->session->getValue('login')!=true) $this->redirect('home');
 
@@ -63,7 +62,7 @@ class Profile extends Resources\Controller{
         if(isset($_POST['simpan'])){
             $data=array(
             'nama'=>$this->request->post('nama'),
-            'password'=>$this->crypt->encrypt('1234'),
+            'password'=>$this->hash->Password('1234'),
             'email'=>$this->request->post('email'),
             'alamat'=>$this->request->post('alamat'),
             'level'=>$this->request->post('level')
@@ -98,7 +97,4 @@ class Profile extends Resources\Controller{
     
     }
     
-    function tes(){
-        echo $this->session->getValue('email');
-    }
 }

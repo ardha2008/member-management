@@ -3,7 +3,7 @@
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<h3 class="text-right">
-				h3. Lorem ipsum dolor sit amet.
+				Member Management. V1.1
 			</h3>
 			<div class="jumbotron well">
 				<h1>
@@ -19,7 +19,7 @@
 		</div>
 	</div>
 	<div class="row clearfix">
-		<div class="col-md-6 column">
+		<div class="col-md-8 column">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="thumbnail">
@@ -39,77 +39,80 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-6 column">
+		<div class="col-md-4 column">
             
             <?php if(isset($message) && $message == 'login_failed'){?>
                 <div class="alert alert-danger">
                     <strong>Email dan password tidak cocok</strong>
                 </div>
             <?php unset($message); } ?>
-			
-            <div class="tabbable" id="tabs-4825">
-                <ul class="nav nav-tabs">
-					<li class="active"><a href="#register" data-toggle="tab">REGISTER</a></li>
-					<li><a href="#login" data-toggle="tab">LOGIN</a></li>
-				</ul>
-                
-				<div class="tab-content">
-					
-                    <div class="tab-pane active" id="register">
-						<p>
-                            <fieldset>
-                                <?php if(isset($message) && $message == 'register'){?>
-                                    <div class="alert alert-success">
-                                        Berhasil melakukan registrasi
-                                    </div>
-                                <?php unset($message); } ?>
-                                
-                                <p>Silahkan isi form di bawah ini dengan baik dan benar</p>
-                                <hr />
-                                <?php $this->output('forms/register');?>
-                            </fieldset>
-						</p>
-					</div>
-					
-                    <div class="tab-pane" id="login">
-						<p>
-                            <fieldset>
-                                <p>Silahkan masukkan email dan password anda</p>
-                                <hr />
-                                <?php $this->output('forms/login');?>
-                            </fieldset>
-						</p>
-					</div>
-				
+            
+            <?php if(isset($message) && $message == 'register'){?>
+                <div class="alert alert-success">
+                    <strong>Registrasi berhasil</strong>
                 </div>
+            <?php unset($message); } ?>
                 
-			</div>
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <a id="modal-649269" class="btn btn-primary btn-block" href="#login_f" role="button" data-toggle="modal">LOGIN</a>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">REGISTER</h3>
+                  </div>
+                  <div class="panel-body">
+                    <?php $this->output('forms/register') ?>
+                  </div>
+                </div>
+			 
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Changelog</h3>
+                  </div>
+                  <div class="panel-body">
+                    <ol>
+				<li>
+					Lorem ipsum dolor sit amet
+				</li>
+				<li>
+					Consectetur adipiscing elit
+				</li>
+				<li>
+					Integer molestie lorem at massa
+				</li>
+				<li>
+					Facilisis in pretium nisl aliquet
+				</li>
+				<li>
+					Nulla volutpat aliquam velit
+				</li>
+				<li>
+					Faucibus porta lacus fringilla vel
+				</li>
+				<li>
+					Aenean sit amet erat nunc
+				</li>
+				<li>
+					Eget porttitor lorem
+				</li>
+			</ol>
+                  </div>
+                </div>
 			
-            <h2>
-				Heading
-			</h2>
-			<p>
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-			</p>
-			<p>
-				<a class="btn" href="#">View details »</a>
-			</p> <address> <strong>Twitter, Inc.</strong><br /> 795 Folsom Ave, Suite 600<br /> San Francisco, CA 94107<br /> <abbr title="Phone">P:</abbr> (123) 456-7890</address>
-			 <a id="modal-649269" href="#modal-container-649269" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
-			
-			<div class="modal fade" id="modal-container-649269" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
+			<div class="modal fade" id="login_f" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-sm">
 					<div class="modal-content">
 						<div class="modal-header">
-							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
 							<h4 class="modal-title" id="myModalLabel">
-								Modal title
+								- LOGIN PANEL -
 							</h4>
 						</div>
 						<div class="modal-body">
-							...
-						</div>
-						<div class="modal-footer">
-							 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Save changes</button>
+							<?php $this->output('forms/login') ?>
 						</div>
 					</div>
 					

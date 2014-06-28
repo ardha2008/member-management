@@ -10,9 +10,9 @@
 				
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
+                        <li><a href="#">Manage Files</a></li>
+                        <li><a href="#">Manage Member</a></li>
 					</ul>
-					
-                    
 					
                     <ul class="nav navbar-nav navbar-right">
 						<li><a href="#">@ardha</a></li>
@@ -23,29 +23,43 @@
 			</nav>
             
 			<div class="row clearfix">
-				<div class="col-md-9 column">
-					<?php $this->output('data'); ?>
+			
+            <?php if($this->session->getValue('level')>=4){?>
+                <div class="col-md-12 column">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Member List</h3>
+                      </div>
+                      <div class="panel-body">
+                        <?php $this->output('data/member'); ?>
+                      </div>
+                    </div>
 				</div>
                 
-				<div class="col-md-3 column">
+                <div class="col-md-12 column">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Files List</h3>
+                      </div>
+                      <div class="panel-body">
+                        <?php $this->output('data/files'); ?>
+                      </div>
+                    </div>
+				</div>
+            <?php } ?>	
+                
+				<div class="col-md-4 column">
 					<div class="list-group">
 						 <a href="#" class="list-group-item active">Home</a>
 						<div class="list-group-item">
 							List header
 						</div>
-						<div class="list-group-item">
-							<h4 class="list-group-item-heading">
-								List group item heading
-							</h4>
-							<p class="list-group-item-text">
-								...
-							</p>
-						</div>
-						<div class="list-group-item">
-							<span class="badge">14</span>Help
-						</div> <a class="list-group-item active"><span class="badge">14</span>Help</a>
 					</div>
 				</div>
+                
+                <div class="col-md-8 column">
+                    
+                </div>
 			</div>
 		</div>
 	</div>

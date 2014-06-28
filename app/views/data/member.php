@@ -41,7 +41,7 @@
                                         <option value="4">Admin</option>
                                         </select>
                                     </td>
-                                    <td><button class="btn btn-success" name="simpan">Simpan</button></a></td>
+                                    <td><button class="btn btn-default btn-block" name="simpan"><i class="glyphicon glyphicon-floppy-save"></i></button></td>
                                 </tr>
                                 <?php } ?>
                             </form>
@@ -54,8 +54,8 @@
                                     <td><?php echo $row->alamat ?></td>
                                     <td><?php echo $row->level ?></td>
                                     <td>
-                                        <a href="<?php echo $this->location('profile/edit/'.$row->id) ?>" class="btn btn-primary">Edit</a>
-                                        <a href="<?php echo $this->location('profile/delete/'.$row->id) ?>" class="btn btn-danger">Hapus</a>
+                                        <a href="<?php echo $this->location('profile/edit/'.$row->id) ?>" class="btn btn-primary" title="EDIT"><i class="glyphicon glyphicon-pencil"></i></a>
+                                        <a href="<?php echo $this->location('profile/delete/'.$row->id) ?>" class="btn btn-danger" title="DELETE"><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                  </tr>
                                  

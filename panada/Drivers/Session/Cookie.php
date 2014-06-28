@@ -18,7 +18,8 @@ class Cookie
 	$sessionCookiePath = '/',
 	$sessionCookieSecure = false,
 	$sessionCookieDomain = '',
-	$cookieChekSumName = 'chs';
+	$cookieChekSumName = 'chs',
+	$sessionCookieHTTTPOnly = true;
     
     protected
 	$hashKey = 'my_key',
@@ -40,6 +41,7 @@ class Cookie
         $this->sessionCookieDomain  = $config['cookieDomain'];
 	$this->hashKey		    = $config['secretKey'];
 	$this->isEncrypt	    = $config['isEncrypt'];
+	$this->cookieChekSumName    = $config['storageName'];
 	
 	
 	// Decrypt the value before use it.
@@ -144,7 +146,8 @@ class Cookie
             time() + $this->sessionCookieExpire,
             $this->sessionCookiePath,
             $this->sessionCookieDomain,
-            $this->sessionCookieSecure
+            $this->sessionCookieSecure,
+	    $this->sessionCookieHTTTPOnly
         );
     }
     
@@ -190,6 +193,23 @@ class Cookie
 	
 	return false;
     }
+
+    /**
+     * Get all session value.
+     *
+     * @return mix
+     */
+	 public function getAllValue() 
+	 {
+        $curentValues = $this->curentValues;
+        unset($curentValues['_d']);
+        
+       	if(empty($curentValues)) {
+            return false;
+			} else {
+				return $curentValues;
+			}
+	 }
     
     /**
      * Remove certain session value.
