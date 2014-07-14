@@ -74,7 +74,8 @@ class MyFiles extends Resources\Controller{
     }
     
     function delete($id){
-        
+        $this->models->files->delete_file($id);
+        $this->redirect('myfiles');
     }
     
 }

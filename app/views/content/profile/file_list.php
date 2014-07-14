@@ -31,7 +31,7 @@
                                   </button>
                                   <ul class="dropdown-menu" role="menu">
                                     <li><a href="<?= $this->uri->getBaseUri().$row->path  ?>"><i class="glyphicon glyphicon-cloud-download"></i> Download</a></li>
-                                    <li><a href="#"><i class="glyphicon glyphicon-remove"></i> Delete</a></li>
+                                    <li><a href="<?= $this->location('myfiles/delete/').$row->id ?>"><i class="glyphicon glyphicon-remove"></i> Delete</a></li>
                                   </ul>
                                 </div>
                             </td>

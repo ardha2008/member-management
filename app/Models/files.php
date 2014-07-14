@@ -19,7 +19,13 @@ class Files {
     }
     
     function getfile($username){
-        $query=$this->db->select()->from('files')->where('username','=',$username)->getAll();
+        $query=$this->db->select()->from('files')->where('username','=',$username,'AND')->where('`delete`','=','0')->getAll();
         return $query;
+    }
+    
+    function delete_file($id){
+        $this->db->where('username','=',$this->resources->session->getValue('username'),'AND');
+        $this->db->where('id','=',$id);
+        $query=$this->db->delete('files',array('delete'=>1));
     }
 }
