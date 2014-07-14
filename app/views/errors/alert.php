@@ -14,4 +14,5 @@
                 <div class="alert alert-danger">
                     <strong>Password dan verifikasi password harus sama</strong>
                 </div>
-            <?php unset($message); } ?>
+            <?php unset($message); }?>
+            

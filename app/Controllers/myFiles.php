@@ -5,7 +5,7 @@ namespace Controllers;
 use Resources,Models, Libraries;
 
 
-class Files extends Resources\Controller{
+class MyFiles extends Resources\Controller{
     
     function __construct(){
         parent::__construct();
@@ -18,6 +18,15 @@ class Files extends Resources\Controller{
     
     function index(){
         
+        
+        $data['title']='Files';
+        $data['pages']='profil/files/list';
+        
+        $data['hasil']=$this->files->getfile();
+        $this->output('home',$data);
+    }
+    
+    function upload(){
         if(isset($_POST['upload'])){
             
             $this->upload= new Resources\Upload;
@@ -50,11 +59,12 @@ class Files extends Resources\Controller{
             }
         }
         
-        $data['title']='Files';
-        $data['pages']='files';
+        $data['title']='Upload Files';
+        $data['pages']='profil/files/upload';
         
         $data['hasil']=$this->files->getfile();
-        $this->output('files',$data);
+        $this->output('home',$data);
+        
     }
     
 }

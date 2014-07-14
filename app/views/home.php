@@ -1,11 +1,16 @@
 <?php 
 $this->output('header'); 
 
-    if($this->resources->session->getValue('login')==false){
+    if($pages=='home'){
         $this->output('content/home');
-    }else{
-        $this->output('content/profil');
     }
+    
+    if($pages=='profile/index')$this->output('content/profile/index');
+    
+    if($pages=='profil/account')$this->output('content/profile/account');
+    
+    if($pages=='profil/files/list')$this->output('content/profile/file_list');
+    if($pages=='profil/files/upload')$this->output('content/profile/files');
     
 $this->output('sidebar');
 

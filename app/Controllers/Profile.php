@@ -22,43 +22,42 @@ class Profile extends Resources\Controller{
     
         
     function index(){
-        $email=$this->session->getValue('email');
+
         
-        if(isset($_POST['simpan'])){
-            $data=array(
-            'nama'=>$this->request->post('nama'),
-            'password'=>$this->hash->Password('1234'),
-            'email'=>$this->request->post('email'),
-            'alamat'=>$this->request->post('alamat'),
-            'level'=>$this->request->post('level')
-            );
-            
-            $query=$this->member->register($data);
-            if(!$query){
-                exit('error');
-            }            
-        }
+        $data['pages']='profile/index';
+        $data['title']='Dashboard';
         
-        if(isset($_POST['update'])){
-            
-            $data=array(
-            'nama'=>$this->request->post('nama'),
-            'email'=>$this->request->post('email'),
-            'alamat'=>$this->request->post('alamat'),
-            'level'=>$this->request->post('level'),
-            );
-            
-            $query=$this->member->update($data);
-            if(!$query){
-                exit('error');
-            }            
-        }
+        $check=$this->model->member->detail($this->session->getValue('email'));
+        if($check[0]->nama==null || $check[0]->nama == '-' || $check[0]->alamat==null) $this->redirect('profile/account');
         
-            $data['pages']='account';
-            $data['title']='Dashboard';
-    
         $this->output('home',$data);
     
+    }
+    
+    function account(){
+        
+        $data['message']='';
+        
+        if(isset($_POST['update'])){
+            $update=array(
+            'nama'=>$this->resources->request->post('nama',FILTER_SANITIZE_STRING),
+            'alamat'=>$this->resources->request->post('alamat',FILTER_SANITIZE_STRING),
+            'email'=>$this->resources->request->post('email',FILTER_SANITIZE_STRING),
+            );
+            
+            $update_check=$this->models->member->update_member($this->session->getValue('id'),$update);
+            if($update_check==true){
+                $data['message']='sukses_update';
+            }else{
+                exit('gagal');
+            }
+        }
+        
+        $data['title']= 'Edit Account';
+        $data['pages']= 'profil/account' ;
+        
+        $data['detail']=$this->models->member->detail($this->session->getValue('username'));
+        $this->output('home',$data);
     }
     
     function delete($id=null){

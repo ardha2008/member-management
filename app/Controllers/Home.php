@@ -12,13 +12,18 @@ class Home extends Resources\Controller
         $this->member = new Models\Member;
         $this->session = new Resources\Session;
         $this->hash= new Libraries\panadaHash;
-        
-        if(isset($_GET['ref'])) $this->session->setValue('ref',$_GET['ref']);
             
     }
     
     public function index($ref=null)
     {       
+        if($ref != null) {
+            $this->session->setValue('ref',$ref);
+            $this->redirect('home');   
+        }else{
+            $this->session->setValue('ref','ardha2008');
+        }
+        
         if(isset($_POST['register'])){
             $data=array(
             'id'=>uniqid(),
@@ -32,8 +37,18 @@ class Home extends Resources\Controller
                 $data['message']='password_beda';
                 
             }else{
-                $register=$this->member->register($data); 
+                $ref_data=array(
+                    'username'=>$this->request->post('username'),
+                    'ref'=>$this->session->getValue('ref'),
+                );
                 
+                $ref_check=$this->model->refferal->new_ref($ref_data);
+                
+                if($ref_check == false){
+                    exit('error');
+                }
+                
+                $register=$this->member->register($data);     
                 if($register==true){
                     $data['message']='register';
                 }   
@@ -47,7 +62,7 @@ class Home extends Resources\Controller
             $check=$this->member->login($email,$password);
             if($check==true){
                 $get=$this->member->detail($email);
-                
+                $this->session->setValue('id',$get[0]->id);
                 $this->session->setValue('username',$get[0]->username);
                 $this->session->setValue('email',$get[0]->email);
                 $this->session->setValue('level',$get[0]->level);
