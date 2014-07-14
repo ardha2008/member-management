@@ -12,7 +12,8 @@
 <div class="panel panel-default">
                   <div class="panel-body">
                     <?php if($this->resources->session->getValue('login')==true){?>   
-                        Selamat datang, <?= $this->resources->session->getValue('username'); ?> , <a href="<?= $this->location('home/logout') ?>" >Logout</a>
+                        Selamat datang, <?= $this->resources->session->getValue('username'); ?> , <a href="<?= $this->location('home/logout') ?>" >Logout</a><br />
+                        Ref ID : <strong><a href="<?= $this->resources->session->getValue('username'); ?>"><?= $this->resources->session->getValue('username') ?></a></strong>
                     <?php }else{
                         ?><a id="modal-649269" class="btn btn-primary btn-block" href="#login_f" role="button" data-toggle="modal">LOGIN</a><?php 
                     } ?>

@@ -23,8 +23,8 @@
 	<!--script src="js/less-1.3.3.min.js"></script-->
 	<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
 	
-	<link href="<?= $this->uri->getBaseUri(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
-	<link href="<?= $this->uri->getBaseUri(); ?>assets/css/style.css" rel="stylesheet">
+	<link href="<?= $this->uri->getBaseUri(); ?>assets/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="<?= $this->uri->getBaseUri(); ?>assets/css/style.css" rel="stylesheet"/>
 
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
@@ -41,6 +41,10 @@
 	<script type="text/javascript" src="<?= $this->uri->getBaseUri(); ?>assets/js/jquery.min.js"></script>
 	<script type="text/javascript" src="<?= $this->uri->getBaseUri(); ?>assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<?= $this->uri->getBaseUri(); ?>assets/js/scripts.js"></script>
+    
+    <!------------------DATATABLES------------------>
+    <link href="//cdn.datatables.net/1.10.0/css/jquery.dataTables.css" rel="stylesheet"/>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
 </head>
 
 <body>

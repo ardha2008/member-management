@@ -85,24 +85,9 @@ class Home extends Resources\Controller
     }   
     
     function tes(){
-        
-        $this->upload = new Resources\Upload;
-        $data['messages'] = '';
-        
-        if(isset($_POST['upload'])){
-            $this->upload->setOption(array(
-            'folderLocation'=>'files',
-            'autoRename'=>true,
-            ));
-            
-            $file=$this->upload->now($_FILES['files']);
-            if($file){
-                $data['messages'] = $this->upload->getFileInfo();
-            }else{
-                $data['messages'] = $this->upload->getError('message');
-            }
-        }
-        
-        $this->output('tes',$data);
+        $gambar= new imagick('1.pdf');
+        $gambar->setImageFormat('jpg');
+        header('Content-Type: image/jpeg');
+        echo $gambar;        
     }
 }

@@ -53,6 +53,31 @@ class Profile extends Resources\Controller{
             }
         }
         
+        if(isset($_POST['change'])){
+            
+            $check=$this->member->detail($this->session->getValue('email'));
+            
+            $oldpassword=$check[0]->password;
+            
+            if($this->hash->output($_POST['oldpassword']) != $oldpassword) {
+                $data['message']='password_lama';
+            }else{
+                
+                if($_POST['newpassword'] != $_POST['renewpassword']){
+                    $data['message']='password_beda';
+                }else{
+                    $data_password=array(
+                    'password'=>$this->hash->output($this->request->post('newpassword')),
+                    );
+                    $update_password=$this->member->update_member($this->session->getValue('id'),$data_password);
+                
+                    if($update_password==true){
+                        $data['message']='update_password';
+                    }
+                }
+            }
+        }
+        
         $data['title']= 'Edit Account';
         $data['pages']= 'profil/account' ;
         

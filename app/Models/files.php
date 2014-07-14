@@ -18,8 +18,8 @@ class Files {
         }
     }
     
-    function getfile(){
-        $query=$this->db->select()->from('files')->getAll();
+    function getfile($username){
+        $query=$this->db->select()->from('files')->where('username','=',$username)->getAll();
         return $query;
     }
 }

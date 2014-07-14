@@ -1,3 +1,22 @@
+<?php if(isset($message) && $message == 'password_lama'){?>
+    <div class="alert alert-danger">
+        <strong>Password lama yang anda masukkan tidak cocok</strong>
+    </div>
+<?php unset($message); }?>
+            
+
+<?php if(isset($message) && $message == 'password_beda'){?>
+    <div class="alert alert-danger">
+        <strong>Verifikasi password harus cocok</strong>
+    </div>
+<?php unset($message); }?>
+
+<?php if(isset($message) && $message == 'update_password'){?>
+    <div class="alert alert-success">
+        <strong>Berhasil memperbarui password</strong>
+    </div>
+<?php unset($message); }?>
+
 <form class="form-horizontal" role="form" method="post">
   
   <div class="form-group">
@@ -23,7 +42,7 @@
   
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Change password</button>
+      <button type="submit" name="change" class="btn btn-default">Change password</button>
     </div> 
   </div>
   
