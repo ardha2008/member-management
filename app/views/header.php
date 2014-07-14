@@ -44,3 +44,18 @@
 </head>
 
 <body>
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<h3 class="text-right">Member Management. V1.1</h3>
+			
+            <div class="jumbotron well">
+				<h1>Management Member</h1>
+				<p>Management member adalah aplikasi kecil yang berguna untuk memanage member</p>
+				
+			</div>
+		
+        </div>
+	</div>
+            <div class="row clearfix">

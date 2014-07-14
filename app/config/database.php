@@ -8,7 +8,7 @@ return array(
         'port' => 3306,
         'user' => 'root',
         'password' => '',
-        'database' => 'ticket',
+        'database' => 'member-management',
         'tablePrefix' => '',
         'charset' => 'utf8',
         'collate' => 'utf8_general_ci',

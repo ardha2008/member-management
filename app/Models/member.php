@@ -22,7 +22,7 @@ class Member {
     }
     
     function login($email,$password){
-        $query=$this->db->row("select count(*) as hasil from member where email='$email' and password='$password'");
+        $query=$this->db->row("select count(*) as hasil from member where email='$email' and password='$password' or username='$email' and password='$password'");
         //$this->db->select()->from($table)->where('email','=',$email,'and')->where('password','=',$password)->getOne();
         if($query->hasil==1){
             return true;
@@ -32,7 +32,7 @@ class Member {
     }
     
     function detail($email){
-        $query=$this->db->select()->from('member')->where('email','=',$email)->getAll();
+        $query=$this->db->select()->from('member')->where('email','=',$email,'or')->where('username','=',$email)->getAll();
         return $query;
     }
     

@@ -11,7 +11,9 @@ class Home extends Resources\Controller
         $this->request = new Resources\Request;
         $this->member = new Models\Member;
         $this->session = new Resources\Session;
-        $this->hash= new Libraries\Hash;
+        $this->hash= new Libraries\panadaHash;
+        
+        if(isset($_GET['ref'])) $this->session->setValue('ref',$_GET['ref']);
             
     }
     
@@ -19,25 +21,37 @@ class Home extends Resources\Controller
     {       
         if(isset($_POST['register'])){
             $data=array(
+            'id'=>uniqid(),
+            'username'=>$this->request->post('username'),
             'email'=>$this->request->post('email'),
-            'password'=>$this->hash->Password($this->request->post('password')),
+            'password'=>$this->hash->output($this->request->post('password')),
             );
             
-           $register=$this->member->register($data); 
-           if($register==true){
-            $data['message']='register';
-           }
+            if($this->request->post('password') != $this->request->post('repassword')){
+                
+                $data['message']='password_beda';
+                
+            }else{
+                $register=$this->member->register($data); 
+                
+                if($register==true){
+                    $data['message']='register';
+                }   
+            }
         }
         
         if(isset($_POST['login'])){
             $email=$this->request->post('email');
-            $password=$this->hash->Password($this->request->post('password'));
+            $password=$this->hash->output($this->request->post('password'));
             
             $check=$this->member->login($email,$password);
             if($check==true){
                 $get=$this->member->detail($email);
+                
+                $this->session->setValue('username',$get[0]->username);
                 $this->session->setValue('email',$get[0]->email);
                 $this->session->setValue('level',$get[0]->level);
+                $this->session->setValue('nama',$get[0]->email);
                 $this->session->setValue('login',true);
                 $this->redirect('profile');
             }else{

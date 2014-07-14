@@ -12,12 +12,53 @@ class Profile extends Resources\Controller{
         $this->session= new Resources\Session;
         $this->request= new Resources\Request;
         $this->member= new Models\Member;
-        $this->hash= new Libraries\Hash;
+        $this->hash= new Libraries\panadaHash;
         
         $this->files= new Models\Files;
         
         if($this->session->getValue('login')!=true) $this->redirect('home');
 
+    }
+    
+        
+    function index(){
+        $email=$this->session->getValue('email');
+        
+        if(isset($_POST['simpan'])){
+            $data=array(
+            'nama'=>$this->request->post('nama'),
+            'password'=>$this->hash->Password('1234'),
+            'email'=>$this->request->post('email'),
+            'alamat'=>$this->request->post('alamat'),
+            'level'=>$this->request->post('level')
+            );
+            
+            $query=$this->member->register($data);
+            if(!$query){
+                exit('error');
+            }            
+        }
+        
+        if(isset($_POST['update'])){
+            
+            $data=array(
+            'nama'=>$this->request->post('nama'),
+            'email'=>$this->request->post('email'),
+            'alamat'=>$this->request->post('alamat'),
+            'level'=>$this->request->post('level'),
+            );
+            
+            $query=$this->member->update($data);
+            if(!$query){
+                exit('error');
+            }            
+        }
+        
+            $data['pages']='account';
+            $data['title']='Dashboard';
+    
+        $this->output('home',$data);
+    
     }
     
     function delete($id=null){
@@ -57,45 +98,6 @@ class Profile extends Resources\Controller{
         $this->output('profile',$data);
 
     }
-    
-    function index(){
-        $email=$this->session->getValue('email');
-        
-        if(isset($_POST['simpan'])){
-            $data=array(
-            'nama'=>$this->request->post('nama'),
-            'password'=>$this->hash->Password('1234'),
-            'email'=>$this->request->post('email'),
-            'alamat'=>$this->request->post('alamat'),
-            'level'=>$this->request->post('level')
-            );
-            
-            $query=$this->member->register($data);
-            if(!$query){
-                exit('error');
-            }            
-        }
-        
-        if(isset($_POST['update'])){
-            
-            $data=array(
-            'nama'=>$this->request->post('nama'),
-            'email'=>$this->request->post('email'),
-            'alamat'=>$this->request->post('alamat'),
-            'level'=>$this->request->post('level'),
-            );
-            
-            $query=$this->member->update($data);
-            if(!$query){
-                exit('error');
-            }            
-        }
-        
-            $data['pages']='account';
-            $data['title']='Dashboard';
-    
-        $this->output('profile',$data);
-    
-    }
+
     
 }
