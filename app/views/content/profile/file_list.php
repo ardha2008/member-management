@@ -5,6 +5,9 @@
         </div>
         
         <div class="panel-body">
+        
+        <a class="btn btn-default" href="<?= $this->location('myfiles/upload') ?>"><i class="glyphicon glyphicon-cloud-upload"></i> Upload</a>
+        <hr />
             <table id="myTable" class="table table-hover table-striped">
                 <thead>
                     <tr>
