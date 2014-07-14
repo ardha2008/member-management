@@ -17,12 +17,12 @@ return array(
     ),
 
     'alias' => array(
-        /*
+        
         'controller' => array(
-            'class' => 'Alias',
+            'class' => 'Home',
             'method' => 'index'
         ),
-        */
+        
         'method' => 'alias'
     ),
 );

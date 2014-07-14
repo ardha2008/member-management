@@ -17,7 +17,7 @@ class Home extends Resources\Controller
             
     }
     
-    public function index()
+    public function index($ref=null)
     {       
         if(isset($_POST['register'])){
             $data=array(
