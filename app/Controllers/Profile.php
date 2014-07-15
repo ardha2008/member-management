@@ -23,12 +23,14 @@ class Profile extends Resources\Controller{
         
     function index(){
 
-        
         $data['pages']='profile/index';
         $data['title']='Dashboard';
         
+        $this->limit= new Libraries\Limiter;
         $check=$this->model->member->detail($this->session->getValue('email'));
         if($check[0]->nama==null || $check[0]->nama == '-' || $check[0]->alamat==null) $this->redirect('profile/account');
+        
+        $data['seluruh']=$this->model->files->get_all_files($this->session->getValue('level'));
         
         $this->output('home',$data);
     

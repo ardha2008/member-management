@@ -42,9 +42,21 @@
 	<script type="text/javascript" src="<?= $this->uri->getBaseUri(); ?>assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<?= $this->uri->getBaseUri(); ?>assets/js/scripts.js"></script>
     
-    <!------------------DATATABLES------------------>
-    <link href="//cdn.datatables.net/1.10.0/css/jquery.dataTables.css" rel="stylesheet"/>
-    <script type="text/javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
+    
+    <?php if($pages=='profil/files/list'){?>
+        <!------------------DATATABLES------------------>
+        <link href="//cdn.datatables.net/1.10.0/css/jquery.dataTables.css" rel="stylesheet"/>
+        <script type="text/javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>    
+    <?php } ?>
+    
+    <?php if($pages=='profil/files/upload'){?>
+        <!------------------EDITOR------------------>
+        <link href="<?= $this->uri->getBaseUri(); ?>assets/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= $this->uri->getBaseUri(); ?>assets/css/froala_editor.min.css" rel="stylesheet" type="text/css"/>
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="<?= $this->uri->getBaseUri(); ?>assets/js/froala_editor.min.js"></script>
+    <?php } ?>
+    
 </head>
 
 <body>

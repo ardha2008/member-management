@@ -1,0 +1,12 @@
+			<html>
+			<head></head>
+			<body>
+			<form name="captchaform" action="/downloadfile/22527729/game_theory_and_computer_games_2.pdf.html" method="post">
+			<input type="hidden" name="captchacount" id="captchacount" value="1" />
+			</form>
+			<script language="javascript">
+			 document.captchaform.submit();
+			</script>
+		  </body>
+		  </html>
+		   

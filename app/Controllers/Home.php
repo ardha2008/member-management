@@ -88,12 +88,7 @@ class Home extends Resources\Controller
         $this->redirect('home');
     }   
     
-    function tes($username){
-        $check=$this->member->member_exist($username);        
-        if($check==true){
-            echo 'nama ada';
-        }else{
-            echo 'nama tidak ada';
-        }
+    function tes(){
+      echo $this->resources->tools->getRandomString(11,false);   
     }
 }

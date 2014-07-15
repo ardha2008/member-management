@@ -26,6 +26,11 @@ class Files {
     function delete_file($id){
         $this->db->where('username','=',$this->resources->session->getValue('username'),'AND');
         $this->db->where('id','=',$id);
-        $query=$this->db->delete('files',array('delete'=>1));
+        $query=$this->db->update('files',array('`delete`'=>1));
+    }
+    
+    function get_all_files($level){
+        $query=$this->db->select()->from('files')->where('`delete`','=','0','AND')->where('level','<=',$level)->orderBy('tanggal','DESC')->getAll();
+        return $query;
     }
 }

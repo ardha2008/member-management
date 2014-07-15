@@ -12,7 +12,7 @@
   
   <div class="form-group">
     <label>Deskripsi</label>
-    <textarea name="deskripsi" class="form-control"></textarea>
+    <textarea id="edit" name="deskripsi" class="form-control" rows="50"></textarea>
   </div>
   
   <div class="form-group">
@@ -23,3 +23,11 @@
   
   <button type="submit" class="btn btn-default" name="upload"><i class="glyphicon glyphicon-cloud-upload"></i> Upload</button>
 </form>
+
+<script>
+    $(function() {
+        $('#edit').editable({
+            inlineMode: false
+            })
+    });
+</script>

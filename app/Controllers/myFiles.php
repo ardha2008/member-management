@@ -19,6 +19,8 @@ class MyFiles extends Resources\Controller{
     
     function index(){
         
+        $this->limiter= new Libraries\Limiter;
+        
         $data['title']='Files';
         $data['pages']='profil/files/list';
         
@@ -34,12 +36,12 @@ class MyFiles extends Resources\Controller{
             
             $this->upload= new Resources\Upload;
             
+            
             $this->upload->setOption(array(
             'folderLocation'=>'files/uploads/'.date('Y').'/'.date('m').'/',
             'autoRename'=>true,
             'autoCreateFolder' => true,
 		    'permittedFileType' => 'pdf',
-		    'maximumSize' => 3000000,
             ));
             
             $file=$this->upload->now($_FILES['files']);
@@ -51,6 +53,7 @@ class MyFiles extends Resources\Controller{
             
             
             $files=array(
+            'id'=>$this->resources->tools->getRandomString(11,false),
             'username'=>$this->resources->session->getValue('username'),
             'nama'=>$this->request->post('nama'),
             'deskripsi'=>$this->request->post('deskripsi'),

@@ -5,6 +5,8 @@
         </div>
         
         <div class="panel-body">
+        <a href="<?= $this->location('myfiles/upload') ?>" class="btn btn-default"><i class="glyphicon glyphicon-cloud-upload"></i> Upload</a>
+        <hr />
             <table id="myTable" class="table table-hover table-striped">
                 <thead>
                     <tr>
@@ -21,7 +23,7 @@
                         <tr>
                             <td><?= $i ?></td>
                             <td><?= $row->nama ?></td>
-                            <td><?= $row->deskripsi ?></td>
+                            <td><?= $this->limiter->word_limiter($row->deskripsi,5) ?> ... </td>
                             <td><?= $row->tanggal ?></td>
                             <td>
                                 <!-- Single button -->
