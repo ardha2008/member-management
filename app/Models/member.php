@@ -64,5 +64,14 @@ class Member {
             return false;
         }
     }
+    
+    function member_exist($username){
+        $query=$this->db->row("select count(*) as hasil from member where username='$username'");
+        if($query->hasil > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }

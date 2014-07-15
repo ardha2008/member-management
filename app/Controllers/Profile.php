@@ -122,6 +122,12 @@ class Profile extends Resources\Controller{
         $this->output('profile',$data);
 
     }
+    
+    function ref(){
+        $data['title'] = 'My Refferal';
+        $data['pages'] = 'profile/ref';
+        $this->output('home',$data);
+    }
 
     
 }

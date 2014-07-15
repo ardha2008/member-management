@@ -8,8 +8,13 @@
 
 
 ?>
+            <div class="panel panel-default">
+                  <div class="panel-body">
+                       Ref ID : <strong><?= $this->resources->session->getValue('ref');?></strong>                  
+                  </div>
+                </div>
 
-<div class="panel panel-default">
+                <div class="panel panel-default">
                   <div class="panel-body">
                     <?php if($this->resources->session->getValue('login')==true){?>   
                         Selamat datang, <?= $this->resources->session->getValue('username'); ?> , <a href="<?= $this->location('home/logout') ?>" >Logout</a><br />

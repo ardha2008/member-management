@@ -18,10 +18,14 @@ class Home extends Resources\Controller
     public function index($ref=null)
     {       
         if($ref != null) {
-            $this->session->setValue('ref',$ref);
-            $this->redirect('home');   
-        }else{
-            $this->session->setValue('ref','ardha2008');
+            $check_ref=$this->member->member_exist($ref);
+            
+            if($check_ref==true){
+                $this->session->setValue('ref',$ref);
+                $this->redirect('home');
+            }else{
+                $this->redirect('home');
+            }             
         }
         
         if(isset($_POST['register'])){
@@ -84,10 +88,12 @@ class Home extends Resources\Controller
         $this->redirect('home');
     }   
     
-    function tes(){
-        $gambar= new imagick('1.pdf');
-        $gambar->setImageFormat('jpg');
-        header('Content-Type: image/jpeg');
-        echo $gambar;        
+    function tes($username){
+        $check=$this->member->member_exist($username);        
+        if($check==true){
+            echo 'nama ada';
+        }else{
+            echo 'nama tidak ada';
+        }
     }
 }
