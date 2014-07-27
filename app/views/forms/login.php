@@ -8,11 +8,15 @@
 
 
 ?>
-            <div class="panel panel-default">
+            
+            <?php if($this->resources->session->getValue('ref')){?>
+                <div class="panel panel-default">
                   <div class="panel-body">
                        Ref ID : <strong><?= $this->resources->session->getValue('ref');?></strong>                  
                   </div>
                 </div>
+            <?php } ?>
+            
 
                 <div class="panel panel-default">
                   <div class="panel-body">

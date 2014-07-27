@@ -53,7 +53,7 @@ class MyFiles extends Resources\Controller{
             
             
             $files=array(
-            'id'=>$this->resources->tools->getRandomString(11,false),
+            'id'=>$this->resources->tools->getRandomString(20,false),
             'username'=>$this->resources->session->getValue('username'),
             'nama'=>$this->request->post('nama'),
             'deskripsi'=>$this->request->post('deskripsi'),
@@ -79,6 +79,16 @@ class MyFiles extends Resources\Controller{
     function delete($id){
         $this->models->files->delete_file($id);
         $this->redirect('myfiles');
+    }
+    
+    function edit($id=null){
+        if($id==null)$this->redirect('myfiles');
+        
+        $data['seluruh']=$this->models->files->getone($id,$this->resources->session->getValue('username'));
+        
+        $data['title']= "Edit ";
+        $data['pages']= 'profil/files/upload/edit';
+        $this->output('home',$data);
     }
     
 }

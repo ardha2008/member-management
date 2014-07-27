@@ -128,6 +128,10 @@ class Profile extends Resources\Controller{
     function ref(){
         $data['title'] = 'My Refferal';
         $data['pages'] = 'profile/ref';
+        
+        $id=$this->session->getValue('username');
+        
+        $data['seluruh'] = $this->models->refferal->get_ref($id);
         $this->output('home',$data);
     }
 

@@ -19,7 +19,7 @@ class Files {
     }
     
     function getfile($username){
-        $query=$this->db->select()->from('files')->where('username','=',$username,'AND')->where('`delete`','=','0')->getAll();
+        $query=$this->db->select()->from('files')->where('username','=',$username,'AND')->where('`delete`','=','0')->orderBy('tanggal','DESC')->getAll();
         return $query;
     }
     
@@ -31,6 +31,11 @@ class Files {
     
     function get_all_files($level){
         $query=$this->db->select()->from('files')->where('`delete`','=','0','AND')->where('level','<=',$level)->orderBy('tanggal','DESC')->getAll();
+        return $query;
+    }
+    
+    function getone($id,$username){
+        $query=$this->db->select()->from('files')->where('id','=',$id,'AND')->where('username','=',$username)->getOne();
         return $query;
     }
 }

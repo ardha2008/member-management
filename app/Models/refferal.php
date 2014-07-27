@@ -13,4 +13,9 @@ class Refferal {
             return false;
         }
     }
+    
+    function get_ref($id){
+        $query=$this->resources->database->select()->from('refferal')->where('ref','=',$id)->getAll();
+        return $query;
+    }
 }

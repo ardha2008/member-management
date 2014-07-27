@@ -24,7 +24,7 @@ class Home extends Resources\Controller
                 $this->session->setValue('ref',$ref);
                 $this->redirect('home');
             }else{
-                $this->redirect('home');
+                $this->resources->tools->setStatusHeader(404);
             }             
         }
         
@@ -89,6 +89,6 @@ class Home extends Resources\Controller
     }   
     
     function tes(){
-      echo $this->resources->tools->getRandomString(11,false);   
+      echo $this->resources->tools->getRandomString(100,false);   
     }
 }

@@ -2,12 +2,21 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="panel-title">
-                New File
+                <?php   if($pages=='profil/files/upload/edit'){
+                    echo 'Edit File';
+                }else{
+                    echo 'New File';
+                } ?>
             </div>
         </div>
         
         <div class="panel-body">
-            <?php $this->output('forms/files');?>
+            <?php   if($pages=='profil/files/upload/edit'){
+                    $this->output('forms/files_edit');
+                }else{
+                    $this->output('forms/files');
+                } ?>
+
         </div>
     </div>
 </div>

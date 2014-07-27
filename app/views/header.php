@@ -49,7 +49,7 @@
         <script type="text/javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>    
     <?php } ?>
     
-    <?php if($pages=='profil/files/upload'){?>
+    <?php if($pages=='profil/files/upload' || $pages=='profil/files/upload/edit'){?>
         <!------------------EDITOR------------------>
         <link href="<?= $this->uri->getBaseUri(); ?>assets/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="<?= $this->uri->getBaseUri(); ?>assets/css/froala_editor.min.css" rel="stylesheet" type="text/css"/>
