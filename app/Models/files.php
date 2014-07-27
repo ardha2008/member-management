@@ -38,4 +38,9 @@ class Files {
         $query=$this->db->select()->from('files')->where('id','=',$id,'AND')->where('username','=',$username)->getOne();
         return $query;
     }
+    
+    function get_detail($id){
+        $query=$this->db->select()->from('files')->where('id','=',$id)->getAll();
+        return $query;
+    }
 }

@@ -10,6 +10,8 @@ $this->output('header');
     
     if($pages=='profil/account')$this->output('content/profile/account');
     
+    if($pages=='myfiles/detail')$this->output('content/myfiles/detail');
+    
     if($pages=='profil/files/list')$this->output('content/profile/file_list');
     if($pages=='profil/files/upload')$this->output('content/profile/files');
     if($pages=='profil/files/upload/edit')$this->output('content/profile/files');

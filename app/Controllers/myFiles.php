@@ -91,4 +91,15 @@ class MyFiles extends Resources\Controller{
         $this->output('home',$data);
     }
     
+    function detail($id=null){
+        if($id==null)$this->redirect('home');
+        
+        $data['title']= "Detail ";
+        $data['pages']= 'myfiles/detail';
+        
+        $data['seluruh']= $this->models->files->get_detail($id);
+        
+        $this->output('home',$data);
+    }
+    
 }
