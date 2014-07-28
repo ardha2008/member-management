@@ -64,6 +64,8 @@
 <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
+            <?php if($this->resources->session->getValue('level')=='4')$this->output('navbar'); ?>
+            
 			<h3 class="text-right">Member Management. V1.1</h3>
 			
             <div class="jumbotron well">
