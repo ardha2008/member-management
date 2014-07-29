@@ -43,13 +43,13 @@
 	<script type="text/javascript" src="<?= $this->uri->getBaseUri(); ?>assets/js/scripts.js"></script>
     
     
-    <?php if($pages=='profil/files/list'){?>
+    <?php if($pages=='myfiles/index'){?>
         <!------------------DATATABLES------------------>
         <link href="//cdn.datatables.net/1.10.0/css/jquery.dataTables.css" rel="stylesheet"/>
         <script type="text/javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>    
     <?php } ?>
     
-    <?php if($pages=='profil/files/upload' || $pages=='profil/files/upload/edit'){?>
+    <?php if($pages=='myfiles/upload' || $pages=='myfiles/edit'){?>
         <!------------------EDITOR------------------>
         <link href="<?= $this->uri->getBaseUri(); ?>assets/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="<?= $this->uri->getBaseUri(); ?>assets/css/froala_editor.min.css" rel="stylesheet" type="text/css"/>

@@ -22,8 +22,8 @@ class MyFiles extends Resources\Controller{
         $this->limiter= new Libraries\Limiter;
         
         $data['title']='Files';
-        $data['pages']='profil/files/list';
-        
+        //$data['pages']='profil/files/list';
+        $data['pages']='myfiles/index';
         $username=$this->session->getValue('username');
         $data['seluruh']=$this->files->getfile($username);
         $this->output('home',$data);
@@ -70,8 +70,8 @@ class MyFiles extends Resources\Controller{
         }
         
         $data['title']='Upload Files';
-        $data['pages']='profil/files/upload';
-        
+       // $data['pages']='profil/files/upload';
+        $data['pages']='myfiles/upload';
         $this->output('home',$data);
         
     }
@@ -87,7 +87,8 @@ class MyFiles extends Resources\Controller{
         $data['seluruh']=$this->models->files->getone($id,$this->resources->session->getValue('username'));
         
         $data['title']= "Edit ";
-        $data['pages']= 'profil/files/upload/edit';
+      //  $data['pages']= 'profil/files/upload/edit';
+        $data['pages']= 'myfiles/edit';
         $this->output('home',$data);
     }
     

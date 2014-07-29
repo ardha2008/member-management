@@ -6,7 +6,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">Manage Members</a></li>
+						<li><a href="<?= $this->location('admin/members') ?>">Manage Members</a></li>
                         <li><a href="#">Manage Files</a></li>
 						<!--<li class="dropdown">
 							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
